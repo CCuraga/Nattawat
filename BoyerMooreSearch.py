@@ -43,7 +43,7 @@ def BMSearch(haystack, needle):
     i = 0
     while i < len(haystack)-len(needle)+1:
         j = len(needle)
-        while j > 0 and needle[j-1] == haystack[i+j-1]:
+        while j > 0 and needle[j-1].lower() == haystack[i+j-1].lower():
             j -= 1
         if j > 0:
             badCharShift = badChar.get(haystack[i+j-1], len(needle))
@@ -97,6 +97,10 @@ while(1):
     m= raw_input()
     if(m=='x'):
         break
+    print "Product Enter Command-line Argument (Enter to default(10)):"
+    o= raw_input()
+    if(o==''):
+        o=10
     j=1
     key=m.split()
     sort= [0]*(len_text-1)
@@ -120,11 +124,12 @@ while(1):
             #print j ,') ','line =',i,':',text[i] ,a,b,':',fn
             sort[j]=fn
             j+=1
+    sort = [x for x in sort if x != 0]
     #print sort
     data_sort = radixsort(sort)
     #print data_sort
     for i in range(1,j):
-        if(i>10):
+        if(i>int(o)):
             break
         index = data_sort[len(data_sort)-i] % 10000
         print '-',text[index]
