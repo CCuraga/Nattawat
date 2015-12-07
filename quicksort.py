@@ -2,7 +2,7 @@ def partition(A,p,r):
     i=p
     x=A[i]
     for j in range(p+1,r+1):
-        if A[j]<=x:
+        if int(A[j])<=int(x):
             i=i+1
             exchange=A[j]
             A[j]=A[i]
@@ -24,7 +24,8 @@ print " Input : "
 m= raw_input()
 n=m.split()
 if(len(n)<101):
-    sort=quicksort(n,0,len(n)-1)
+    quicksort(n,0,(len(n)-1))
+    sort=quicksort(n,0,(len(n)-1))
     for i in range(0,len(n)):
         output+=str(sort[i])
         output+=' '
