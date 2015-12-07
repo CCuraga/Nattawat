@@ -24,7 +24,6 @@ print " Input : "
 m= raw_input()
 n=m.split()
 if(len(n)<101):
-    quicksort(n,0,(len(n)-1))
     sort=quicksort(n,0,(len(n)-1))
     for i in range(0,len(n)):
         output+=str(sort[i])
