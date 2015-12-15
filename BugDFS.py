@@ -1,3 +1,8 @@
+#download input file 
+#http://www.mediafire.com/download/glig343dkqqabnb/inputbp.txt
+#http://www.mediafire.com/download/b815b1b270p9luj/inputbp2.txt
+#http://www.mediafire.com/download/5z4v0zyh6ocxy38/inputbp3.txt
+
 with open('inputbp.txt') as f:
     text=f.readlines()
 f.close()
