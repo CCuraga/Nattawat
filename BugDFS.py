@@ -1,8 +1,3 @@
-#download input file 
-#http://www.mediafire.com/download/glig343dkqqabnb/inputbp.txt
-#http://www.mediafire.com/download/b815b1b270p9luj/inputbp2.txt
-#http://www.mediafire.com/download/5z4v0zyh6ocxy38/inputbp3.txt
-
 with open('inputbp.txt') as f:
     text=f.readlines()
 f.close()
@@ -27,7 +22,7 @@ numtablemap=len(tablemap)
 global nummap  
 nummap=1
 
-def find(B,P):
+def find(B,P):  #หาทางว่าไปได้หรือเปล่า ไปปได้ retrun 1 ไม่ได้ 0
     bug=list(B)
     patchlaw=list(P)
     j=0
@@ -40,7 +35,7 @@ def find(B,P):
     else:
         return 0
 
-def savemap(B,P,T):
+def savemap(B,P,T): #ตรวจสอบทางที่ได้ว่าใหม่หรือว่าไวกว่าหรือเปล่า
     print B
     global nummap 
     bug=list(B)
@@ -63,13 +58,13 @@ def savemap(B,P,T):
         tablemap[nummap]= bugfix
         time[nummap]=T
         nummap+=1
-        ans(bugfix,T)
+        ans(bugfix,T)   #ส่งไปทำต่อ
         return bugfix,
 
-def ans(B,T):
+def ans(B,T):       # main วน Patch ทั้งหมด
     for i in range(0,numPatch):
-        if(find(B,Patch[i][1])):
-           Bans=savemap(B,Patch[i][2],T+int(Patch[i][0]))
+        if(find(B,Patch[i][1])): #หาทางไปได้ 
+           Bans=savemap(B,Patch[i][2],T+int(Patch[i][0])) 
            print time,tablemap
 
 def solve():    #Start Funtion
